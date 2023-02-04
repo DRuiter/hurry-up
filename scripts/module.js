@@ -70,7 +70,8 @@ class CombatTimer extends Application {
     this.reset();
     if (game.settings.get("hurry-up", "goNext") && game.user.isGM) {
       if (game.modules.has("dfreds-convenient-effects")) {
-        const goNextAction = game.settings.get("hurry-up", "goNextAction");
+        const goNextActionName = game.settings.get("hurry-up", "goNextAction");
+        const goNextAction = game.dfreds.effectInterface.findEffectByName(goNextActionName);
 
         if (goNextAction) {
           const shouldPrompt =  game.settings.get("hurry-up", "goNextActionPrompt");
@@ -78,8 +79,8 @@ class CombatTimer extends Application {
           const actor = combatant?.actor;
 
           const toggleEffectFn = () => {
-            game.dfreds?.effectInterface.removeEffect(goNextAction, { uuids: [actor.uuid] });
-            game.dfreds?.effectInterface.addEffect(goNextAction, { uuids: [actor.uuid] });
+            game.dfreds?.effectInterface.removeEffect({effectName: goNextAction, uuid: actor.uuid });
+            game.dfreds?.effectInterface.addEffect({effectName: goNextAction, uuid: actor.uuid });
           };
 
           if (shouldPrompt) {

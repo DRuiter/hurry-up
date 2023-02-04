@@ -74,7 +74,7 @@ class CombatTimer extends Application {
         const goNextAction = game.dfreds.effectInterface.findEffectByName(goNextActionName);
 
         if (goNextAction) {
-          const shouldPrompt =  game.settings.get("hurry-up", "goNextActionPrompt");
+          const shouldPrompt = game.settings.get("hurry-up", "goNextActionPrompt");
           const combatant = game.combat?.combatant;
           const actor = combatant?.actor;
 
@@ -84,8 +84,9 @@ class CombatTimer extends Application {
           };
 
           if (shouldPrompt) {
-            Dialog.confirm({
+            await Dialog.confirm({
               content: `Timer expired, apply the ${goNextAction} action to ${actor.name}?`,
+              yes: toggleEffectFn,
               callback: toggleEffectFn,
             })
           } else {

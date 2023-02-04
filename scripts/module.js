@@ -70,8 +70,7 @@ class CombatTimer extends Application {
     this.reset();
     if (game.settings.get("hurry-up", "goNext") && game.user.isGM) {
       if (game.modules.has("dfreds-convenient-effects")) {
-        const goNextActionName = game.settings.get("hurry-up", "goNextAction");
-        const goNextAction = game.dfreds.effectInterface.findEffectByName(goNextActionName);
+        const goNextAction = game.settings.get("hurry-up", "goNextAction");
 
         if (goNextAction) {
           const shouldPrompt = game.settings.get("hurry-up", "goNextActionPrompt");

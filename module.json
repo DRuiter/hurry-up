@@ -29,9 +29,9 @@
   "styles": [
     "styles/module.css"
   ],
-  "url": "https://github.com/theripper93/hurry-up",
-  "manifest": "https://github.com/theripper93/hurry-up/releases/latest/download/module.json",
-  "download": "https://github.com/theripper93/hurry-up/releases/latest/download/module.zip",
+  "url": "https://github.com/DRuiter/hurry-up",
+  "manifest": "https://github.com/DRuiter/hurry-up/releases/latest/download/module.json",
+  "download": "https://github.com/DRuiter/hurry-up/releases/latest/download/module.zip",
   "socket": true,
   "id": "hurry-up",
   "relationships": {

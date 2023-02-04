@@ -34,6 +34,11 @@
   "download": "https://github.com/DRuiter/hurry-up/releases/latest/download/module.zip",
   "socket": true,
   "id": "hurry-up",
+  "dependencies": [
+    {
+        "name": "socketlib"
+    }
+  ],
   "relationships": {
     "requires": [
       {
@@ -44,10 +49,10 @@
     ]
   },
   "compatibility": {
-    "minimum": "10",
+    "minimum": "9",
     "verified": "10"
   },
 
   "name": "hurry-up",
-  "minimumCoreVersion": "10"
+  "minimumCoreVersion": "9"
 }

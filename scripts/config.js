@@ -122,6 +122,26 @@ Hooks.once("init", async function () {
     default: false,
   });
 
+  if (game.modules.has('dfreds-convenient-effects')) {
+    game.settings.register("hurry-up", "goNextAction", {
+      name: game.i18n.localize("hp.settings.goNextAction.name"),
+      hint: game.i18n.localize("hp.settings.goNextAction.hint"),
+      scope: "world",
+      config: true,
+      type: String,
+      default: null,
+    });
+
+    game.settings.register("hurry-up", "goNextActionPrompt", {
+      name: game.i18n.localize("hp.settings.goNextActionPrompt.name"),
+      hint: game.i18n.localize("hp.settings.goNextActionPrompt.hint"),
+      scope: "world",
+      config: true,
+      type: Boolean,
+      default: true,
+    });
+  }
+
   game.settings.register("hurry-up", "runForNPC", {
     name: game.i18n.localize("hp.settings.runForNpc.name"),
     hint: game.i18n.localize("hp.settings.runForNpc.hint"),

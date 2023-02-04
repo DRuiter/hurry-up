@@ -69,6 +69,30 @@ class CombatTimer extends Application {
     if (this.timeRemaining > 0) return;
     this.reset();
     if (game.settings.get("hurry-up", "goNext") && game.user.isGM) {
+      if (game.modules.has("dfreds-convenient-effects")) {
+        const goNextAction = game.settings.get("hurry-up", "goNextAction");
+
+        if (goNextAction) {
+          const shouldPrompt =  game.settings.get("hurry-up", "goNextActionPrompt");
+          const combatant = game.combat?.combatant;
+          const actor = combatant?.actor;
+
+          const toggleEffectFn = () => {
+            game.dfreds?.effectInterface.removeEffect(goNextAction, { uuids: [actor.uuid] });
+            game.dfreds?.effectInterface.addEffect(goNextAction, { uuids: [actor.uuid] });
+          };
+
+          if (shouldPrompt) {
+            Dialog.confirm({
+              content: `Timer expired, apply the ${goNextAction} action to ${actor.name}?`,
+              callback: toggleEffectFn,
+            })
+          } else {
+            toggleEffectFn();
+          }
+        }
+      }
+
       game.combat?.nextTurn()
     }
     this.endSound()

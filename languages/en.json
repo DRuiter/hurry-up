@@ -41,6 +41,14 @@
                 "name": "Go Next",
                 "hint": "Go to next combatant when timer ends. Does not trigger when overtime is allowed."
             },
+            "goNextAction": {
+                "name": "Go Next Action",
+                "hint": "Effect name to apply when timer Go Next triggers, i.e. 'Dodge'. Will prompt the GM for confirmation."
+            },
+            "goNextActionPrompt": {
+                "name": "Go Next Action Prompt",
+                "hint": "Toggles whether the GM is prompted for applying the action."
+            },
 			"runForNpc": {
 				"name": "Run for NPC",
 				"hint": "Run the timer on NPCs turn"
